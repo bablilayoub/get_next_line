@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:47:23 by abablil           #+#    #+#             */
-/*   Updated: 2023/11/25 15:54:16 by abablil          ###   ########.fr       */
+/*   Updated: 2023/11/29 14:26:38 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	temp = read_data(fd, data[fd]);
 	if (!temp)
-	{
-		if (data[fd])
-			free(data[fd]);
-		return (data[fd] = NULL);
-	}
+		return (data[fd] = free_array(data[fd]));
 	data[fd] = temp;
 	if (line_len(data[fd]) == 0)
 		return (data[fd] = free_array(data[fd]));

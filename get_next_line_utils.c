@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:47:25 by abablil           #+#    #+#             */
-/*   Updated: 2023/11/25 15:34:41 by abablil          ###   ########.fr       */
+/*   Updated: 2023/11/27 16:53:08 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ char	*ft_strdup(char *s1)
 	size_t	str_len;
 	char	*new_str;
 
+	if (!s1)
+		return (NULL);
 	str_len = ft_strlen(s1);
 	new_str = (char *)malloc(sizeof(char) * (str_len + 1));
 	if (new_str == NULL)
