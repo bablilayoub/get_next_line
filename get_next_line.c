@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:47:23 by abablil           #+#    #+#             */
-/*   Updated: 2023/11/29 14:36:19 by abablil          ###   ########.fr       */
+/*   Updated: 2023/11/30 17:52:51 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*temp;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX || BUFFER_SIZE > INT_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > INT_MAX || BUFFER_SIZE >= INT_MAX)
 		return (NULL);
 	temp = read_data(fd, data);
 	if (!temp)
