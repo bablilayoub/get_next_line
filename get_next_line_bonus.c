@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:47:23 by abablil           #+#    #+#             */
-/*   Updated: 2023/11/30 17:52:59 by abablil          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:03:41 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*temp;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX || BUFFER_SIZE >= INT_MAX)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
 		return (NULL);
 	temp = read_data(fd, data[fd]);
 	if (!temp)
@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 	line = ft_substr(data[fd], 0, line_len(data[fd]), 0);
 	if (!line)
 		return (data[fd] = free_array(data[fd]));
-	data[fd] = ft_substr(data[fd], 
+	data[fd] = ft_substr(data[fd],
 			line_len(data[fd]), ft_strlen(data[fd]) - line_len(data[fd]), 1);
 	if (!data[fd])
 		return (data[fd] = free_array(data[fd]));
